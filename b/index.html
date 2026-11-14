@@ -52,11 +52,9 @@ h2 span{color:var(--acc)}
 .hero .lead{margin:0 0 34px}
 .row{display:flex;gap:18px;align-items:center;flex-wrap:wrap}
 .price-note{color:var(--soft);font-size:15px}.price-note b{color:var(--ink);font-weight:600}
-.media{position:relative;display:grid;grid-template-columns:1.3fr .7fr;gap:14px;align-items:end}
-/* __PORTRAIT__: заменить на <img> с настоящим фото Османовой (4:5) */
-.portrait{aspect-ratio:4/5;border-radius:var(--r);background:repeating-linear-gradient(135deg,#1b463d 0 14px,#18403a 14px 28px);border:1px dashed #44756a;display:grid;place-items:center;text-align:center;color:var(--soft);font-size:15px;padding:24px}
+.media{margin:0;justify-self:end;width:min(100%,400px)}.media figcaption{margin-top:16px;font-size:18px;line-height:1.45}.media figcaption small{display:block;color:var(--mute);font-size:14px;margin-top:6px}
 .phone{border-radius:var(--r);overflow:hidden;background:#000;box-shadow:0 28px 60px -24px #000c;border:0;padding:0;cursor:zoom-in}
-.phone img{width:100%;height:330px;object-fit:cover;object-position:top}
+.phone{display:block;width:100%}.phone img{width:100%;height:480px;object-fit:cover;object-position:center 30%}
 .badge{position:absolute;left:16px;bottom:16px;background:var(--bg);padding:12px 16px;border-radius:var(--r-s);font-size:14px;color:var(--soft);box-shadow:0 10px 30px -10px #0008}
 .badge b{display:block;color:var(--ink);font-size:17px;font-weight:500}
 
@@ -142,7 +140,7 @@ h2 span{color:var(--acc)}
 .direct a span{color:var(--acc)}
 .form{background:var(--paper);color:var(--paper-ink);border-radius:var(--r);padding:32px}
 .form label{display:block;font-size:15px;font-weight:500;margin-bottom:16px}
-.form input[type=text],.form select,.form textarea{display:block;width:100%;margin-top:8px;padding:14px 14px;border:1.5px solid #c8d0c9;border-radius:var(--r-s);background:#fff;color:var(--paper-ink);font-size:16px}
+.form input[type=text],.form input[type=tel],.form select,.form textarea{display:block;width:100%;margin-top:8px;padding:14px 14px;border:1.5px solid #c8d0c9;border-radius:var(--r-s);background:#fff;color:var(--paper-ink);font-size:16px}
 .form input:focus,.form select:focus,.form textarea:focus{outline:none;border-color:#1d5a4a;box-shadow:0 0 0 3px #1d5a4a26}
 .form .check{display:flex;gap:10px;align-items:flex-start;font-weight:400;font-size:14px;color:var(--paper-soft)}
 .form .check input{width:18px;height:18px;margin:2px 0 0;accent-color:#10302a;flex:none}
@@ -181,7 +179,7 @@ footer a{text-decoration:underline}
   .hero .wrap,.about .wrap,.process .wrap,.training .wrap,.faq .wrap,.contact .wrap{grid-template-columns:1fr;gap:36px}
   .hero .wrap{padding-top:28px;padding-bottom:56px}
   .lead{font-size:17px}
-  .phone img{height:250px}
+  .phone img{height:380px}.media{justify-self:stretch;width:100%}
   .services,.pains,.process,.faq{padding:64px 0}.about,.reviews,.training,.contact{padding:72px 0}
   .services .grid{grid-template-columns:1fr;margin-top:28px}.svc.big{grid-row:auto;padding:28px}.svc.big h3{font-size:28px}
   .pains ul{grid-template-columns:1fr}.pains q{font-size:21px}
@@ -194,6 +192,13 @@ footer a{text-decoration:underline}
   footer{padding-bottom:96px}
   .sticky-wa{display:flex;justify-content:center;position:fixed;left:12px;right:12px;bottom:12px;z-index:30;background:var(--acc);color:var(--acc-ink);padding:16px;border-radius:var(--r-s);font-weight:600;box-shadow:0 10px 30px -8px #000a}
 }
+
+/* Круглая кнопка звонка: номер на странице не показывается */
+.call{position:fixed;right:max(18px,env(safe-area-inset-right,0px));bottom:max(18px,env(safe-area-inset-bottom,0px));z-index:40;width:62px;height:62px;border-radius:50%;background:#1fa463;color:#fff;display:grid;place-items:center;box-shadow:0 10px 28px -6px #0f5d36aa;transition:transform .2s}
+.call:hover{transform:scale(1.06)}.call:active{transform:scale(.96)}
+@media (prefers-reduced-motion:no-preference){.call:after{content:"";position:absolute;inset:0;border-radius:50%;border:2px solid #1fa463;animation:ring 2.4s ease-out infinite}}
+@keyframes ring{0%{transform:scale(1);opacity:.7}100%{transform:scale(1.55);opacity:0}}
+.form .opt{margin-top:-6px}
 </style>
 </head>
 <body>
@@ -201,7 +206,7 @@ footer a{text-decoration:underline}
   <div class="wrap">
     <a class="logo" href="#top">Гос. Османова</a>
     <nav class="menu" id="menu"><a href="#services">Услуги</a><a href="#about">Обо мне</a><a href="#reviews">Отзывы</a><a href="#training">Обучение</a><a href="#faq">Вопросы</a></nav>
-    <a class="wa" href="https://wa.me/79062227553" data-wa="Здравствуйте! Хочу разобраться с вопросом по выплатам." target="_blank" rel="noopener">WhatsApp</a>
+    <a class="wa" href="#contact">Связаться</a>
     <button class="burger" aria-label="Меню" aria-expanded="false" aria-controls="menu"><i></i><i></i></button>
   </div>
 </header>
@@ -213,28 +218,24 @@ footer a{text-decoration:underline}
         <h1>Пособия и выплаты без&nbsp;паники. <span>Я&nbsp;объясню, что&nbsp;делать.</span></h1>
         <p class="lead">Меня зовут Османова. Больше пяти лет помогаю мамам с единым пособием, отказами и региональным капиталом. Онлайн, по всей России.</p>
         <div class="row">
-          <a class="btn" href="https://wa.me/79062227553" data-wa="Здравствуйте! Хочу разобраться с вопросом по выплатам." target="_blank" rel="noopener">Написать в WhatsApp</a>
+          <a class="btn" href="#contact">Связаться</a>
           <span class="price-note">Консультация <b>500 ₽</b></span>
         </div>
       </div>
-      <div class="media">
-        <div class="portrait">Здесь будет настоящее фото Османовой<br>(нужно от владельца)</div>
-        <button class="phone" data-zoom="../assets/review-approval-private-blurred.jpg"><img src="../assets/review-approval-private-blurred.jpg" alt="Сообщение клиентки: проблему нашли сразу, заявление одобрили"></button>
-        <div class="badge"><b>Османова</b>@gos.osmanova, 24 тыс. в Instagram*</div>
-      </div>
+      <figure class="media"><button class="phone" data-zoom="../assets/review-approval-private-blurred.jpg"><img src="../assets/review-approval-private-blurred.jpg" alt="Сообщение клиентки: проблему нашли сразу, заявление одобрили"></button><figcaption>«Как я рада, что написала вам, проблему нашли сразу»<small>Сообщение клиентки</small></figcaption></figure>
     </div>
   </section>
 
   <section class="services" id="services">
     <div class="wrap">
       <h2 class="reveal">С чем помогаю</h2>
-      <p class="lead reveal">Не обязательно знать, как называется ваш вопрос. Нажмите на ближайшую тему, сообщение в WhatsApp напишется само.</p>
+      <p class="lead reveal">Не обязательно знать, как называется ваш вопрос. Нажмите на ближайшую тему и оставьте заявку.</p>
       <div class="grid">
-        <a class="svc big reveal" href="https://wa.me/79062227553" data-wa="Здравствуйте! У меня вопрос по единому пособию." target="_blank" rel="noopener"><h3>Единое пособие</h3><p>Условия назначения, заявление, непонятные уведомления и отказы.</p><span class="go">Спросить про пособие →</span></a>
-        <a class="svc reveal" href="https://wa.me/79062227553" data-wa="Здравствуйте! У меня вопрос по региональному капиталу." target="_blank" rel="noopener"><h3>Региональный капитал</h3><p>Консультация по региональной мере поддержки.</p><span class="go">Спросить →</span></a>
-        <a class="svc reveal" href="https://wa.me/79062227553" data-wa="Здравствуйте! У меня вопрос по самозанятости." target="_blank" rel="noopener"><h3>Самозанятость</h3><p>Оформление и применение статуса.</p><span class="go">Спросить →</span></a>
-        <a class="svc reveal" href="https://wa.me/79062227553" data-wa="Здравствуйте! У меня вопрос по подарочным выплатам." target="_blank" rel="noopener"><h3>Подарочные выплаты</h3><p>Условия и порядок обращения.</p><span class="go">Спросить →</span></a>
-        <a class="svc reveal" href="https://wa.me/79062227553" data-wa="Здравствуйте! У меня другой вопрос по государственным услугам." target="_blank" rel="noopener"><h3>Другой вопрос</h3><p>Опишите ситуацию, и я скажу, смогу ли помочь.</p><span class="go">Написать →</span></a>
+        <a class="svc big reveal" href="#contact"><h3>Единое пособие</h3><p>Условия назначения, заявление, непонятные уведомления и отказы.</p><span class="go">Спросить про пособие →</span></a>
+        <a class="svc reveal" href="#contact"><h3>Региональный капитал</h3><p>Консультация по региональной мере поддержки.</p><span class="go">Спросить →</span></a>
+        <a class="svc reveal" href="#contact"><h3>Самозанятость</h3><p>Оформление и применение статуса.</p><span class="go">Спросить →</span></a>
+        <a class="svc reveal" href="#contact"><h3>Подарочные выплаты</h3><p>Условия и порядок обращения.</p><span class="go">Спросить →</span></a>
+        <a class="svc reveal" href="#contact"><h3>Другой вопрос</h3><p>Опишите ситуацию, и я скажу, смогу ли помочь.</p><span class="go">Написать →</span></a>
       </div>
     </div>
   </section>
@@ -245,14 +246,13 @@ footer a{text-decoration:underline}
         <h2>Объясняю так, чтобы <span>стало понятно</span></h2>
         <p>Чаще всего ко мне пишут мамы. Я знаю, как важно, когда тебе не просто присылают ссылку на инструкцию, а спокойно объясняют, что делать именно в твоей ситуации.</p>
         <p>Моя задача: внимательно разобраться в вопросе, объяснить возможные шаги и помочь с тем, о чём мы договоримся. Решение о выплате всегда принимает государственный орган, и я честно об этом говорю.</p>
-        <a class="insta" href="https://www.instagram.com/gos.osmanova/" target="_blank" rel="noopener"><span>Полезное о выплатах в Instagram<small>@gos.osmanova</small></span><span class="link">Открыть</span></a>
       </div>
       <div class="facts reveal">
         <div><b>5+</b><span>лет помогаю с выплатами</span></div>
         <div><b>3 000+</b><span>мам получили помощь*</span></div>
-        <div><b>24 тыс.</b><span>подписчиков в Instagram*</span></div>
+        <div><b>Онлайн</b><span>по всей России</span></div>
         <div><b>500 ₽</b><span>первая консультация</span></div>
-        <small>*По данным специалиста и её Instagram-профиля.</small>
+        <small>*По данным специалиста.</small>
       </div>
     </div>
   </section>
@@ -288,7 +288,7 @@ footer a{text-decoration:underline}
         <h2>Как всё проходит</h2>
         <p class="lead">Никаких неожиданных условий. Стоимость любой дополнительной работы вы узнаёте до её начала.</p>
         <ol class="steps">
-          <li><b>Вы пишете</b><span>Коротко описываете ситуацию в WhatsApp.</span></li>
+          <li><b>Вы пишете</b><span>Коротко описываете ситуацию в заявке.</span></li>
           <li><b>Разбираем вопрос</b><span>Уточняю детали и говорю, чем могу помочь.</span></li>
           <li><b>Согласуем цену</b><span>Если нужна помощь сверх консультации, называю стоимость заранее.</span></li>
           <li><b>Двигаемся дальше</b><span>Вы понимаете следующий шаг и получаете согласованную помощь.</span></li>
@@ -298,7 +298,7 @@ footer a{text-decoration:underline}
         <span>Первичная консультация</span>
         <div class="sum">500 ₽</div>
         <p>Спокойно разберём ваш вопрос и обсудим, что делать дальше.</p>
-        <a class="btn" href="https://wa.me/79062227553" data-wa="Здравствуйте! Хочу записаться на консультацию за 500 рублей." target="_blank" rel="noopener">Записаться</a>
+        <a class="btn" href="#contact">Записаться</a>
       </div>
     </div>
   </section>
@@ -309,14 +309,14 @@ footer a{text-decoration:underline}
       <div class="reveal">
         <h2>Хотите сами работать <span>в&nbsp;этой сфере?</span></h2>
         <p class="lead">Провожу индивидуальное обучение работе с государственными услугами. Можно прийти с нуля. О программе, формате, сроках и стоимости расскажу лично.</p>
-        <a class="btn" href="https://wa.me/79062227553" data-wa="Здравствуйте! Хочу узнать об индивидуальном обучении." target="_blank" rel="noopener">Узнать об обучении</a>
+        <a class="btn" href="#contact">Узнать об обучении</a>
       </div>
     </div>
   </section>
 
   <section class="faq" id="faq">
     <div class="wrap">
-      <div class="reveal"><h2>Частые вопросы</h2><p class="lead">Если ответа нет, просто спросите в WhatsApp.</p></div>
+      <div class="reveal"><h2>Частые вопросы</h2><p class="lead">Если ответа нет, задайте свой вопрос в заявке.</p></div>
       <div class="reveal">
         <details><summary>Вы работаете только в одном регионе?</summary><p>Нет, консультации проходят дистанционно. Написать можно из любого региона России.</p></details>
         <details><summary>Не знаю, положена ли мне выплата. Можно обратиться?</summary><p>Да. На консультации разберём ситуацию и определим, какие условия важно проверить. Окончательное решение принимает уполномоченный государственный орган.</p></details>
@@ -335,19 +335,16 @@ footer a{text-decoration:underline}
       <div class="reveal">
         <h2>Расскажите, <span>что случилось</span></h2>
         <p class="lead">Для начала хватит короткого сообщения. Документы сразу присылать не нужно.</p>
-        <div class="direct">
-          <a href="https://wa.me/79062227553" data-wa="Здравствуйте! Хочу разобраться с вопросом по выплатам." target="_blank" rel="noopener">WhatsApp<span>→</span></a>
-          <a href="tel:+79062227553">+7 906 222-75-53<span>→</span></a>
-          <a href="https://www.instagram.com/gos.osmanova/" target="_blank" rel="noopener">@gos.osmanova<span>→</span></a>
-        </div>
       </div>
       <form class="form reveal" id="form">
         <label>Как к вам обращаться<input type="text" name="name" autocomplete="given-name" required></label>
+        <label>Телефон для связи<input type="tel" name="phone" autocomplete="tel" inputmode="tel" placeholder="+7" required></label>
         <label>С чем нужна помощь<select name="topic" required><option value="">Выберите тему</option><option>Единое пособие</option><option>Отказ или уведомление</option><option>Региональный капитал</option><option>Самозанятость</option><option>Подарочные выплаты</option><option>Индивидуальное обучение</option><option>Другой вопрос</option></select></label>
         <label>Коротко о ситуации<textarea name="message" rows="3" required></textarea></label>
         <label class="check"><input type="checkbox" name="consent" required><span>Согласен(на) на обработку персональных данных по <a href="../assets/privacy.html#consent" target="_blank">политике конфиденциальности</a></span></label>
-        <button class="btn" type="submit">Продолжить в WhatsApp</button>
-        <small>Сайт не сохраняет ваши данные. Форма только подготовит сообщение в WhatsApp. Не отправляйте пароли, коды из СМС и паспортные данные.</small>
+        <label class="check opt"><input type="checkbox" name="ads"><span>Согласен(на) получать информационные и рекламные сообщения (<a href="../assets/privacy.html#ads" target="_blank">условия</a>). Необязательно.</span></label>
+        <button class="btn" type="submit">Отправить заявку</button>
+        <small>Перезвоню или напишу вам, как только смогу. Не отправляйте пароли, коды из СМС и паспортные данные.</small>
       </form>
     </div>
   </section>
@@ -356,16 +353,16 @@ footer a{text-decoration:underline}
 <footer>
   <div class="wrap">
     <b>Гос. Османова</b>
-    <p>Независимый специалист. Сайт не является официальным ресурсом государственных органов или порталом Госуслуг. Решение о назначении выплаты принимает уполномоченный орган.<br><span class="req">[ФИО полностью], ИНН [ИНН], [Плательщик НПД / ОГРНИП]</span>. <a href="../assets/privacy.html">Политика конфиденциальности</a>. © <span id="y"></span></p>
+    <p>Независимый специалист. Сайт не является официальным ресурсом государственных органов или порталом Госуслуг. Решение о назначении выплаты принимает уполномоченный орган. <a href="../assets/privacy.html">Политика конфиденциальности</a>. © <span id="y"></span></p>
   </div>
 </footer>
 
-<a class="sticky-wa" href="https://wa.me/79062227553" data-wa="Здравствуйте! Хочу разобраться с вопросом по выплатам." target="_blank" rel="noopener">Написать в WhatsApp</a>
+<a class="call" href="tel:+79062227553" aria-label="Позвонить"><svg viewBox="0 0 24 24" width="28" height="28" aria-hidden="true"><path fill="currentColor" d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"/></svg></a>
 <dialog class="lightbox" id="lightbox"><button aria-label="Закрыть">×</button><img src="" alt=""></dialog>
 
 <script>
 const $=s=>document.querySelector(s),$$=s=>document.querySelectorAll(s);
-// WhatsApp: готовый текст сообщения из data-wa
+// Ссылки с готовым текстом (data-wa)
 $$('[data-wa]').forEach(a=>a.href='https://wa.me/79062227553?text='+encodeURIComponent(a.dataset.wa));
 // Мобильное меню
 const burger=$('.burger'),menu=$('#menu');
@@ -376,10 +373,13 @@ const dlg=$('#lightbox'),big=dlg.querySelector('img');
 $$('[data-zoom]').forEach(b=>b.addEventListener('click',()=>{big.src=b.dataset.zoom;big.alt=b.querySelector('img').alt;dlg.showModal()}));
 dlg.querySelector('button').addEventListener('click',()=>dlg.close());
 dlg.addEventListener('click',e=>{if(e.target===dlg)dlg.close()});
-// Форма: собираем сообщение и открываем WhatsApp
+// Форма заявки
 const form=$('#form');
+// Кнопки «Связаться» и темы ведут к форме и сразу выбирают подходящую тему
+const topicMap=[['пособи','Единое пособие'],['отказ','Отказ или уведомление'],['регион','Региональный капитал'],['самозан','Самозанятость'],['подароч','Подарочные выплаты'],['обучени','Индивидуальное обучение'],['друг','Другой вопрос']];
+$$('a[href="#contact"]').forEach(a=>a.addEventListener('click',()=>{const t=a.textContent.toLowerCase();const hit=topicMap.find(([k])=>t.includes(k));if(hit)form.topic.value=hit[1];setTimeout(()=>form.name.focus({preventScroll:true}),500)}));
 form.addEventListener('submit',e=>{e.preventDefault();if(!form.reportValidity())return;const d=new FormData(form);
-  const t=`Здравствуйте! Меня зовут ${String(d.get('name')).trim()}.\nТема: ${d.get('topic')}.\nСитуация: ${String(d.get('message')).trim()}`;
+  const t=`Здравствуйте! Заявка с сайта.\nИмя: ${String(d.get('name')).trim()}\nТелефон: ${String(d.get('phone')).trim()}\nТема: ${d.get('topic')}\nСитуация: ${String(d.get('message')).trim()}\nСогласие на рекламные сообщения: ${d.get('ads')?'да':'нет'}`;
   window.open('https://wa.me/79062227553?text='+encodeURIComponent(t),'_blank','noopener')});
 $('#y').textContent=new Date().getFullYear();
 // Плавное появление блоков
