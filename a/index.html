@@ -1,0 +1,348 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#f3f4f1">
+<meta name="description" content="Гос. Османова: независимый специалист по пособиям и выплатам. Единое пособие, отказы, региональный капитал. Онлайн по всей России. Консультация 500 ₽.">
+<title>Гос. Османова: помогу разобраться с пособием</title>
+<link rel="icon" href="../assets/favicon.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Onest:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+/* ДЕМО A «Вопросы». Тема: светлый холодный серый + изумруд. Шрифт: Onest */
+:root{
+  --bg:#f3f4f1;--bg-2:#e7eae5;--card:#fff;
+  --ink:#121513;--soft:#4a514c;--mute:#5f6862;--line:#d7dbd5;
+  --acc:#0b6b4b;--acc-2:#0f855e;--acc-soft:#e3f0ea;--on-acc:#fff;
+  --deep:#0d2a20;
+  --r:18px;--r-s:12px;--pill:999px;
+  --wrap:1200px;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--bg);color:var(--ink);font:17px/1.6 Onest,system-ui,sans-serif;-webkit-font-smoothing:antialiased}
+a{color:inherit;text-decoration:none}
+img{max-width:100%;display:block}
+button,input,select,textarea{font:inherit}
+.wrap{max-width:var(--wrap);margin:auto;padding:0 24px}
+h1,h2,h3{margin:0;letter-spacing:-.03em;font-weight:700}
+h2{font-size:clamp(32px,4vw,50px);line-height:1.06;margin-bottom:16px}
+.lead{font-size:19px;color:var(--soft);max-width:560px;margin:0}
+.btn{display:inline-flex;align-items:center;gap:12px;background:var(--acc);color:var(--on-acc);padding:17px 26px;border-radius:var(--pill);font-weight:600;font-size:17px;border:0;cursor:pointer;transition:background .2s,transform .2s cubic-bezier(.16,1,.3,1)}
+.btn:hover{background:var(--acc-2)}.btn:active{transform:scale(.98)}
+.btn-dark{background:var(--ink)}.btn-dark:hover{background:#2a302c}
+:focus-visible{outline:2px solid var(--acc);outline-offset:3px}
+
+/* Шапка */
+.top{position:sticky;top:0;z-index:20;background:#f3f4f1e6;backdrop-filter:blur(10px)}
+.top .wrap{height:72px;display:flex;align-items:center;justify-content:space-between;gap:20px}
+.logo{font-weight:700;font-size:19px;letter-spacing:-.02em}.logo span{color:var(--acc)}
+.menu{display:flex;gap:28px;font-size:15px;color:var(--soft)}
+.menu a:hover{color:var(--ink)}
+.top .wa{background:var(--ink);color:#fff;padding:10px 18px;border-radius:var(--pill);font-weight:600;font-size:15px}
+.burger{display:none;background:none;border:0;padding:8px;cursor:pointer}
+.burger i{display:block;width:22px;height:2px;background:var(--ink);margin:5px 0}
+
+/* Первый экран */
+.hero .wrap{display:grid;grid-template-columns:1.12fr .88fr;gap:56px;align-items:start;padding-top:44px;padding-bottom:88px}
+.hero h1{font-size:clamp(36px,4vw,56px);line-height:1.03;margin-bottom:22px}
+.hero .lead{margin-bottom:30px}
+.facts{display:flex;gap:36px;margin-top:36px;color:var(--soft);font-size:15px}
+.facts b{display:block;color:var(--ink);font-size:24px;letter-spacing:-.02em}
+.qs{background:var(--card);border-radius:var(--r);padding:10px;box-shadow:0 1px 0 #0000000a,0 30px 60px -36px #0b2a1e66}
+.qs>p{margin:12px 16px 6px;font-size:14px;color:var(--mute)}
+.q{display:flex;justify-content:space-between;align-items:center;gap:16px;padding:17px 16px;border-radius:var(--r-s);font-size:18px;font-weight:500;transition:background .15s}
+.q:hover{background:var(--acc-soft)}.q i{font-style:normal;color:var(--acc);transition:transform .2s}.q:hover i{transform:translateX(3px)}
+.q+.q{box-shadow:0 -1px 0 #eef0ec}
+.mini{display:flex;gap:14px;align-items:center;margin:10px 6px 6px;padding:14px;border-radius:var(--r-s);background:var(--bg);border:0;width:calc(100% - 12px);text-align:left;cursor:zoom-in}
+.mini img{width:62px;height:82px;object-fit:cover;object-position:top;border-radius:8px;flex:none}
+.mini span{font-size:15px;line-height:1.45}.mini small{display:block;color:var(--mute);font-size:13px;margin-top:4px}
+
+/* Отзывы: коллаж */
+.reviews{background:var(--bg-2);padding:104px 0}
+.reviews .wrap{display:grid;grid-template-columns:.8fr 1.2fr;gap:56px;align-items:center}
+.reviews .lead{margin-bottom:28px}
+.quotes{display:grid;gap:18px;margin:0;padding:0;list-style:none}
+.quotes li{background:var(--card);border-radius:var(--r-s);padding:18px 20px;font-size:17px;line-height:1.45}
+.quotes small{display:block;color:var(--mute);font-size:13px;margin-top:6px}
+.wall{position:relative;height:620px}
+.wall button{position:absolute;border:0;padding:8px;background:#fff;border-radius:12px;box-shadow:0 30px 60px -30px #121513aa;cursor:zoom-in;transition:transform .35s cubic-bezier(.16,1,.3,1)}
+.wall button:hover{transform:translateY(-6px);z-index:5}
+.wall img{border-radius:6px;width:100%}
+.w1{width:44%;left:0;top:40px}.w2{width:44%;left:28%;top:0;z-index:2}.w3{width:40%;right:0;top:150px}
+.note{color:var(--mute);font-size:14px;margin-top:22px}
+
+/* Обо мне */
+.about{padding:110px 0}
+.about .wrap{display:grid;grid-template-columns:1fr 1fr;gap:72px;align-items:start}
+.about p{color:var(--soft);font-size:18px;margin:0 0 18px;max-width:540px}
+.stats{display:grid;grid-template-columns:1fr 1fr;border-top:2px solid var(--ink)}
+.stats div{padding:26px 0 26px;border-bottom:1px solid var(--line)}
+.stats div:nth-child(odd){padding-right:20px;border-right:1px solid var(--line)}
+.stats div:nth-child(even){padding-left:24px}
+.stats b{display:block;font-size:46px;letter-spacing:-.04em;line-height:1}
+.stats span{color:var(--soft);font-size:15px}
+.stats small{grid-column:1/-1;color:var(--mute);font-size:13px;padding-top:14px}
+.insta{display:inline-flex;gap:10px;align-items:center;margin-top:10px;font-weight:600;color:var(--acc);border-bottom:2px solid #0b6b4b40;padding-bottom:3px}
+
+/* Как работаем + цена */
+.process{padding:0 0 110px}
+.process-box{background:var(--card);border-radius:var(--r);padding:48px;display:grid;grid-template-columns:1.4fr .6fr;gap:48px;align-items:stretch}
+.steps{display:grid;grid-template-columns:repeat(4,1fr);gap:22px;margin:30px 0 0;padding:0;list-style:none;counter-reset:s}
+.steps li{counter-increment:s}
+.steps li:before{content:counter(s);display:grid;place-items:center;width:34px;height:34px;border-radius:50%;background:var(--acc-soft);color:var(--acc);font-weight:700;font-size:15px;margin-bottom:16px}
+.steps b{display:block;font-size:18px;margin-bottom:6px}
+.steps span{color:var(--soft);font-size:15px}
+.price{background:var(--acc);color:var(--on-acc);border-radius:var(--r-s);padding:30px;display:flex;flex-direction:column}
+.price .sum{font-size:64px;font-weight:700;letter-spacing:-.05em;line-height:1;margin:8px 0 12px}
+.price p{margin:0 0 22px;color:#d6efe4;font-size:15px;flex:1}
+.price .btn{background:#fff;color:var(--acc);justify-content:center}.price .btn:hover{background:#eaf6f0}
+
+/* Обучение */
+.training{background:var(--deep);color:#eef3ef;padding:100px 0}
+.training .wrap{display:grid;grid-template-columns:1.1fr .9fr;gap:64px;align-items:center}
+.training .lead{color:#b8c9bf;margin-bottom:30px}
+.training .btn{background:#fff;color:var(--deep)}.training .btn:hover{background:#e3f0ea}
+.training figure{margin:0}
+.training figure button{border:0;padding:0;background:#000;border-radius:var(--r);overflow:hidden;cursor:zoom-in;width:100%}
+.training figure img{width:100%;height:500px;object-fit:cover;object-position:bottom}
+.training figcaption{margin-top:14px;font-size:17px;color:#d4e0d8}
+
+/* FAQ */
+.faq{padding:110px 0}
+.faq .wrap{display:grid;grid-template-columns:.75fr 1.25fr;gap:64px}
+.faq details{background:var(--card);border-radius:var(--r-s);padding:20px 22px;margin-bottom:10px}
+.faq summary{cursor:pointer;list-style:none;display:flex;justify-content:space-between;gap:20px;font-size:18px;font-weight:500}
+.faq summary::-webkit-details-marker{display:none}
+.faq summary:after{content:"+";color:var(--acc);font-size:24px;line-height:1;transition:transform .25s}
+.faq details[open] summary:after{transform:rotate(45deg)}
+.faq details p{color:var(--soft);margin:12px 0 0;max-width:640px}
+
+/* Контакты */
+.contact{background:var(--bg-2);padding:110px 0}
+.contact .wrap{display:grid;grid-template-columns:1fr 1fr;gap:64px;align-items:start}
+.direct{margin-top:30px;display:flex;flex-direction:column;gap:6px;font-size:20px;font-weight:500}
+.direct a{padding:6px 0}.direct a:hover{color:var(--acc)}
+.form{background:var(--card);border-radius:var(--r);padding:32px}
+.form label{display:block;font-size:15px;font-weight:500;margin-bottom:16px}
+.form input[type=text],.form select,.form textarea{display:block;width:100%;margin-top:8px;padding:14px;border:1.5px solid #cdd3cd;border-radius:var(--r-s);background:#fff;color:var(--ink);font-size:16px}
+.form input:focus,.form select:focus,.form textarea:focus{outline:none;border-color:var(--acc);box-shadow:0 0 0 3px #0b6b4b26}
+.form .check{display:flex;gap:10px;align-items:flex-start;font-weight:400;font-size:14px;color:var(--soft)}
+.form .check input{width:18px;height:18px;margin:2px 0 0;accent-color:var(--acc);flex:none}
+.form .check a{text-decoration:underline;color:var(--ink)}
+.form .btn{width:100%;justify-content:center}
+.form small{display:block;color:var(--mute);font-size:13px;margin-top:14px;line-height:1.5}
+
+footer{padding:36px 0 40px;font-size:14px;color:var(--mute)}
+footer .wrap{display:grid;grid-template-columns:auto 1fr;gap:12px 48px}
+footer b{color:var(--ink)}
+footer p{margin:0;max-width:720px}
+footer a{text-decoration:underline}
+.req{background:#f3dccf;color:#6b3a28;padding:0 4px}
+
+.lightbox{border:0;padding:0;background:transparent;max-width:min(94vw,760px)}
+.lightbox::backdrop{background:#0b0f0ce6}
+.lightbox img{max-height:88vh;width:auto;border-radius:var(--r-s)}
+.lightbox button{position:fixed;top:16px;right:16px;width:44px;height:44px;border-radius:50%;border:0;background:#fff;color:var(--ink);font-size:24px;cursor:pointer}
+.sticky-wa{display:none}
+
+@media (prefers-reduced-motion:no-preference){
+  .reveal{opacity:0;transform:translateY(18px);transition:opacity .7s cubic-bezier(.16,1,.3,1),transform .7s cubic-bezier(.16,1,.3,1)}
+  .reveal.in{opacity:1;transform:none}
+}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}*{transition:none!important}}
+
+@media(max-width:860px){
+  .wrap{padding:0 16px}
+  .menu{display:none;position:absolute;top:72px;left:0;right:0;background:var(--bg);flex-direction:column;gap:0;padding:8px 16px 16px;border-bottom:1px solid var(--line)}
+  .menu.open{display:flex}.menu a{padding:14px 0;font-size:17px;border-bottom:1px solid var(--line)}
+  .top .wa{display:none}.burger{display:block}
+  .hero .wrap,.reviews .wrap,.about .wrap,.training .wrap,.faq .wrap,.contact .wrap{grid-template-columns:1fr;gap:32px}
+  .hero .wrap{padding-top:20px;padding-bottom:56px}
+  .lead{font-size:17px}
+  .q{font-size:17px;padding:15px 12px}
+  .facts{gap:28px}
+  .reviews,.about,.training,.faq,.contact{padding:72px 0}
+  .wall{height:auto;display:flex;gap:12px;overflow-x:auto;scroll-snap-type:x mandatory;margin:0 -16px;padding:0 16px 10px}
+  .wall button{position:static;flex:0 0 72%;scroll-snap-align:start}
+  .wall button:hover{transform:none}
+  .process{padding-bottom:72px}
+  .process-box{grid-template-columns:1fr;padding:26px}
+  .steps{grid-template-columns:1fr 1fr;gap:22px 16px}
+  .training figure img{height:420px}
+  footer .wrap{grid-template-columns:1fr}
+  footer{padding-bottom:96px}
+  .sticky-wa{display:flex;justify-content:center;position:fixed;left:12px;right:12px;bottom:12px;z-index:30;background:var(--acc);color:#fff;padding:16px;border-radius:var(--pill);font-weight:600;box-shadow:0 10px 30px -8px #0b2a1e80}
+}
+</style>
+</head>
+<body>
+<header class="top">
+  <div class="wrap">
+    <a class="logo" href="#top">Османова<span>.</span></a>
+    <nav class="menu" id="menu"><a href="#reviews">Отзывы</a><a href="#about">Обо мне</a><a href="#price">Цена</a><a href="#training">Обучение</a><a href="#faq">Вопросы</a></nav>
+    <a class="wa" href="https://wa.me/79062227553" data-wa="Здравствуйте! Хочу разобраться с вопросом по выплатам." target="_blank" rel="noopener">WhatsApp</a>
+    <button class="burger" aria-label="Меню" aria-expanded="false" aria-controls="menu"><i></i><i></i></button>
+  </div>
+</header>
+
+<main id="top">
+  <section class="hero">
+    <div class="wrap">
+      <div>
+        <h1>Помогу разобраться с&nbsp;пособием, отказом или&nbsp;заявлением</h1>
+        <p class="lead">Объясняю простыми словами, что делать в вашей ситуации. Онлайн, по всей России. Консультация 500&nbsp;₽.</p>
+        <a class="btn" href="https://wa.me/79062227553" data-wa="Здравствуйте! Хочу разобраться с вопросом по выплатам." target="_blank" rel="noopener">Написать в WhatsApp <span>→</span></a>
+        <div class="facts"><span><b>5+ лет</b>помогаю с выплатами</span><span><b>3 000+</b>мам получили помощь*</span></div>
+      </div>
+      <div class="qs">
+        <p>Выберите свой вопрос, сообщение в WhatsApp напишется само:</p>
+        <a class="q" href="https://wa.me/79062227553" data-wa="Здравствуйте! Хочу понять, положено ли мне единое пособие." target="_blank" rel="noopener">Положено ли мне единое пособие?<i>→</i></a>
+        <a class="q" href="https://wa.me/79062227553" data-wa="Здравствуйте! Мне пришёл отказ, хочу понять, что делать дальше." target="_blank" rel="noopener">Пришёл отказ. Что делать дальше?<i>→</i></a>
+        <a class="q" href="https://wa.me/79062227553" data-wa="Здравствуйте! У меня вопрос по региональному капиталу." target="_blank" rel="noopener">Вопрос по региональному капиталу<i>→</i></a>
+        <a class="q" href="https://wa.me/79062227553" data-wa="Здравствуйте! У меня вопрос по самозанятости." target="_blank" rel="noopener">Вопрос по самозанятости<i>→</i></a>
+        <a class="q" href="https://wa.me/79062227553" data-wa="Здравствуйте! У меня вопрос по подарочным выплатам." target="_blank" rel="noopener">Подарочные выплаты<i>→</i></a>
+        <a class="q" href="https://wa.me/79062227553" data-wa="Здравствуйте! У меня другая ситуация с государственными услугами." target="_blank" rel="noopener">У меня другая ситуация<i>→</i></a>
+        <button class="mini" data-zoom="../assets/review-regional-capital.jpg"><img src="../assets/review-regional-capital.jpg" alt="Сообщение клиентки о получении регионального капитала"><span>«Получила сегодня региональный капитал. Спасибо вам большое»<small>Сообщение клиентки, нажмите чтобы увеличить</small></span></button>
+      </div>
+    </div>
+  </section>
+
+  <section class="reviews" id="reviews">
+    <div class="wrap">
+      <div class="reveal">
+        <h2>Что пишут после работы</h2>
+        <p class="lead">Настоящие переписки с клиентками и ученицей. Имена и аватары скрыты.</p>
+        <ul class="quotes">
+          <li>«Как я рада, что написала вам, проблему нашли сразу»<small>Помощь с заявлением</small></li>
+          <li>«После обучения с тобой я стала уверенной»<small>Ученица</small></li>
+        </ul>
+      </div>
+      <div class="wall reveal">
+        <button class="w1" data-zoom="../assets/review-regional-capital.jpg"><img src="../assets/review-regional-capital.jpg" alt="Клиентка сообщает, что получила региональный капитал" loading="lazy"></button>
+        <button class="w2" data-zoom="../assets/review-approval-private-blurred.jpg"><img src="../assets/review-approval-private-blurred.jpg" alt="Благодарность за помощь с заявлением, данные документа скрыты" loading="lazy"></button>
+        <button class="w3" data-zoom="../assets/review-training.jpg"><img src="../assets/review-training.jpg" alt="Отзыв ученицы после обучения" loading="lazy"></button>
+      </div>
+    </div>
+  </section>
+
+  <section class="about" id="about">
+    <div class="wrap">
+      <div class="reveal">
+        <h2>Меня зовут Османова</h2>
+        <p>Больше пяти лет помогаю людям разбираться в государственных услугах и выплатах. Чаще всего ко мне пишут мамы.</p>
+        <p>Я не отправляю ссылку на инструкцию. Я спокойно объясняю, что делать именно в вашей ситуации, и помогаю с тем, о чём мы договоримся. Решение о выплате принимает государственный орган, и я честно об этом говорю.</p>
+        <a class="insta" href="https://www.instagram.com/gos.osmanova/" target="_blank" rel="noopener">Полезное о выплатах в Instagram →</a>
+      </div>
+      <div class="stats reveal">
+        <div><b>5+</b><span>лет практики</span></div>
+        <div><b>3 000+</b><span>мам получили помощь*</span></div>
+        <div><b>24 тыс.</b><span>подписчиков в Instagram*</span></div>
+        <div><b>Онлайн</b><span>по всей России</span></div>
+        <small>*По данным специалиста и её Instagram-профиля.</small>
+      </div>
+    </div>
+  </section>
+
+  <section class="process" id="price">
+    <div class="wrap">
+      <div class="process-box reveal">
+        <div>
+          <h2>Сначала разберёмся, потом решите</h2>
+          <p class="lead">Стоимость любой работы сверх консультации вы узнаёте заранее.</p>
+          <ol class="steps">
+            <li><b>Пишете</b><span>Коротко описываете ситуацию.</span></li>
+            <li><b>Разбираем</b><span>Уточняю детали и говорю, чем могу помочь.</span></li>
+            <li><b>Согласуем цену</b><span>До начала работы, без сюрпризов.</span></li>
+            <li><b>Действуете</b><span>Понимаете следующий шаг.</span></li>
+          </ol>
+        </div>
+        <div class="price">
+          <span>Первичная консультация</span>
+          <div class="sum">500 ₽</div>
+          <p>Разберём ваш вопрос и обсудим, что делать дальше.</p>
+          <a class="btn" href="https://wa.me/79062227553" data-wa="Здравствуйте! Хочу записаться на консультацию за 500 рублей." target="_blank" rel="noopener">Записаться</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="training" id="training">
+    <div class="wrap">
+      <div class="reveal">
+        <h2>Хотите сами работать в&nbsp;этой сфере?</h2>
+        <p class="lead">Провожу индивидуальное обучение работе с государственными услугами. Можно прийти с нуля. О программе, формате, сроках и стоимости расскажу лично.</p>
+        <a class="btn" href="https://wa.me/79062227553" data-wa="Здравствуйте! Хочу узнать об индивидуальном обучении." target="_blank" rel="noopener">Узнать об обучении</a>
+      </div>
+      <figure class="reveal"><button data-zoom="../assets/review-training.jpg"><img src="../assets/review-training.jpg" alt="Отзыв ученицы: пришла новичком, после обучения стала уверенной" loading="lazy"></button><figcaption>«Пришла к тебе с простыми страхами, боялась что не смогу»</figcaption></figure>
+    </div>
+  </section>
+
+  <section class="faq" id="faq">
+    <div class="wrap">
+      <div class="reveal"><h2>Частые вопросы</h2><p class="lead">Не нашли ответ? Спросите в WhatsApp.</p></div>
+      <div class="reveal">
+        <details><summary>Вы работаете только в одном регионе?</summary><p>Нет, консультации проходят дистанционно. Написать можно из любого региона России.</p></details>
+        <details><summary>Не знаю, положена ли мне выплата. Можно обратиться?</summary><p>Да. На консультации разберём ситуацию и определим, какие условия важно проверить. Окончательное решение принимает уполномоченный государственный орган.</p></details>
+        <details><summary>Что делать, если пришёл отказ?</summary><p>Обсудим текст уведомления и возможные причины отказа, поймём, какие действия стоит рассмотреть. Отмена отказа не гарантируется.</p></details>
+        <details><summary>Что входит в консультацию за 500 ₽?</summary><p>Разбор вашего вопроса, объяснение порядка действий и того, какие сведения могут понадобиться. Дополнительная помощь согласуется отдельно.</p></details>
+        <details><summary>Сколько стоит дальнейшая помощь?</summary><p>Зависит от сложности задачи. Сначала я уточняю запрос и называю стоимость, а вы решаете, подходит ли вам.</p></details>
+        <details><summary>Как быстро вы отвечаете?</summary><p>Стараюсь отвечать быстро и по возможности начинать в день обращения. Скорость зависит от загрузки, а срок рассмотрения заявления зависит от ведомства.</p></details>
+        <details><summary>Нужно передавать пароль от Госуслуг или код из СМС?</summary><p>Нет. Никому не передавайте пароль, одноразовые коды и данные для входа. Для начала достаточно описать вопрос.</p></details>
+        <details><summary>Вы официальный представитель Госуслуг?</summary><p>Нет. Я независимый специалист, не государственный орган и не официальный представитель портала Госуслуг.</p></details>
+      </div>
+    </div>
+  </section>
+
+  <section class="contact" id="contact">
+    <div class="wrap">
+      <div class="reveal">
+        <h2>Расскажите, что случилось</h2>
+        <p class="lead">Для начала хватит короткого сообщения. Документы сразу присылать не нужно.</p>
+        <div class="direct">
+          <a href="tel:+79062227553">+7 906 222-75-53</a>
+          <a href="https://www.instagram.com/gos.osmanova/" target="_blank" rel="noopener">@gos.osmanova в Instagram</a>
+        </div>
+      </div>
+      <form class="form reveal" id="form">
+        <label>Как к вам обращаться<input type="text" name="name" autocomplete="given-name" required></label>
+        <label>С чем нужна помощь<select name="topic" required><option value="">Выберите тему</option><option>Единое пособие</option><option>Отказ или уведомление</option><option>Региональный капитал</option><option>Самозанятость</option><option>Подарочные выплаты</option><option>Индивидуальное обучение</option><option>Другой вопрос</option></select></label>
+        <label>Коротко о ситуации<textarea name="message" rows="3" required></textarea></label>
+        <label class="check"><input type="checkbox" name="consent" required><span>Согласен(на) на обработку персональных данных по <a href="../assets/privacy.html#consent" target="_blank">политике конфиденциальности</a></span></label>
+        <button class="btn" type="submit">Продолжить в WhatsApp</button>
+        <small>Сайт не сохраняет ваши данные. Форма только подготовит сообщение в WhatsApp. Не отправляйте пароли, коды из СМС и паспортные данные.</small>
+      </form>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <b>Гос. Османова</b>
+    <p>Независимый специалист. Сайт не является официальным ресурсом государственных органов или порталом Госуслуг. Решение о назначении выплаты принимает уполномоченный орган.<br><span class="req">[ФИО полностью], ИНН [ИНН], [Плательщик НПД / ОГРНИП]</span>. <a href="../assets/privacy.html">Политика конфиденциальности</a>. © <span id="y"></span></p>
+  </div>
+</footer>
+
+<a class="sticky-wa" href="https://wa.me/79062227553" data-wa="Здравствуйте! Хочу разобраться с вопросом по выплатам." target="_blank" rel="noopener">Написать в WhatsApp</a>
+<dialog class="lightbox" id="lightbox"><button aria-label="Закрыть">×</button><img src="" alt=""></dialog>
+
+<script>
+const $=s=>document.querySelector(s),$$=s=>document.querySelectorAll(s);
+$$('[data-wa]').forEach(a=>a.href='https://wa.me/79062227553?text='+encodeURIComponent(a.dataset.wa));
+const burger=$('.burger'),menu=$('#menu');
+burger.addEventListener('click',()=>{const o=menu.classList.toggle('open');burger.setAttribute('aria-expanded',String(o))});
+menu.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>{menu.classList.remove('open');burger.setAttribute('aria-expanded','false')}));
+const dlg=$('#lightbox'),big=dlg.querySelector('img');
+$$('[data-zoom]').forEach(b=>b.addEventListener('click',()=>{big.src=b.dataset.zoom;big.alt=b.querySelector('img').alt;dlg.showModal()}));
+dlg.querySelector('button').addEventListener('click',()=>dlg.close());
+dlg.addEventListener('click',e=>{if(e.target===dlg)dlg.close()});
+const form=$('#form');
+form.addEventListener('submit',e=>{e.preventDefault();if(!form.reportValidity())return;const d=new FormData(form);
+  const t=`Здравствуйте! Меня зовут ${String(d.get('name')).trim()}.\nТема: ${d.get('topic')}.\nСитуация: ${String(d.get('message')).trim()}`;
+  window.open('https://wa.me/79062227553?text='+encodeURIComponent(t),'_blank','noopener')});
+$('#y').textContent=new Date().getFullYear();
+if('IntersectionObserver' in window){const io=new IntersectionObserver(es=>es.forEach(en=>{if(en.isIntersecting){en.target.classList.add('in');io.unobserve(en.target)}}),{threshold:.12});$$('.reveal').forEach(el=>io.observe(el))}else{$$('.reveal').forEach(el=>el.classList.add('in'))}
+</script>
+</body>
+</html>
